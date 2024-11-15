@@ -1,9 +1,11 @@
-const fn = function () { 
-    console.log("Function is working!")
- };
+const express = require("express");
 
- function abc () {
-    console.log("afadfa");
- };
+const app = express();
+const port = 3000;
 
- abc();
+app.get('/', ( req, res ) => {
+    res.send('Merhabaaaa!');
+});
+app.listen(port, () => {
+    console.log(`Sunucu port ${port}'de çalışmaktadır.`)
+});
