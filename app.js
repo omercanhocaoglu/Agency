@@ -10,11 +10,16 @@ app.set('view engine', 'ejs');
 
 // MIDDLEWARES
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // ROUTES
 app.get('/', ( req, res ) => {
-    // res.sendFile(path.resolve(__dirname, 'temp/index.ejs'));
     res.render('index');
+});
+app.post('/photos', ( req, res ) => {
+    console.log(req.body);
+    res.redirect('/');
 });
 app.listen(port, () => {
     console.log(`Sunucu port ${port}'de çalışmaktadır.`)
