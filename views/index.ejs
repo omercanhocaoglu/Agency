@@ -27,7 +27,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#photos">Photos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Add Photo</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
@@ -45,7 +45,7 @@
             </div>
         </header>
         <!-- Services-->
-        <section class="page-section" id="services">
+        <section class="page-section">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Services</h2>
@@ -80,29 +80,32 @@
             </div>
         </section>
         <!-- Portfolio Grid-->
-        <section class="page-section bg-light" id="portfolio">
+        <section class="page-section bg-light">
             <div class="container">
-                <div class="text-center">
+                <div class="text-center" id="photos">
                     <h2 class="section-heading text-uppercase">Photos</h2>
                     <h3 class="section-subheading text-muted"> Lorem ipsum mipsum </h3>
                 </div>
                 <div class="row">
+                    <% for (let i = 0; i < photos.length; i++) { %>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
                                 <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                    <!-- <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div> -->
                                 </div>
                                 <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading"> <%= photos[i].title %> </div>
+                                <div class="portfolio-caption-subheading text-muted"> <%= photos[i].description %> </div>
                             </div>
                         </div>
+                        <!-- Portfolio item 1-->
                     </div>
-                    <div class="text-center">
+                    <% } %>
+                    <div class="text-center" id="portfolio">
                         <h2 class="section-heading text-uppercase">Add Photo</h2>
                         <h3 class="section-subheading text-muted">You can add photo here</h3>
                     </div>
