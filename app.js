@@ -28,16 +28,14 @@ app.get('/', async ( req, res ) => {
         photos
     });
 });
-
 app.get('/photos/:id', async (req, res) => {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     // res.render();
     const photo = await Photo.findById(req.params.id);
     res.render('photo', {
         photo
     }); 
 });
-
 app.post('/photos', async ( req, res ) => {
     // console.log(req.body);
     await Photo.create(req.body);
