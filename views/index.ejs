@@ -59,7 +59,7 @@
                                 <!-- <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div> -->
-                                <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
+                                <img class="img-fluid" src="<%= photos[i].image %>" alt="..." />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"> <%= photos[i].title %> </div>
@@ -74,7 +74,7 @@
                         <h3 class="section-subheading text-muted">You can add photo here</h3>
                     </div>
                     <!-- Form -->
-                    <form method="POST" action="/photos">
+                    <form method="POST" action="/photos" encType="multipart/form-data">
                         <div class="row align-items-stretch mb-5">
                             <div class="col-md-6">
                                 <div class="form-group p-2">
@@ -93,7 +93,7 @@
                         <!-- Submit Button-->
                         <div class="text-center">
                             <button class="btn btn-primary btn-xl" type="submit">
-                                Send Message
+                                Upload Photo
                             </button>
                         </div>
                     </form>
