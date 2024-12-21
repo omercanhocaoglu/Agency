@@ -30,27 +30,31 @@
                                 </h5>
                             </div>
                             <div class="text-center p-3">
-                                <h2 class="section-heading text-uppercase"> Photo Page </h2>
+                                <h2 class="section-heading text-uppercase"> Update Page </h2>
                             </div>
                             <!-- for line -->
-                            <div class="col-lg-8">
-                                <div class="text-center">
-                                    <!-- Project details-->
-                                    <h5 class="text-uppercase"> <%= photo.title %> </h5>
-                                    <p class="item-intro text-muted"> <%= photo.description %> </p>
-                                    <img class="img-fluid img-thumbnail d-block mx-auto" src=" <%= photo.image %> " alt="..." />
-                                    <div class="mt-2 p-2">
-                                        <a href="/photos/edit/<%= photo._id %>" class="btn btn-warning btn-xl text-uppercase" data-bs-dismiss="" type="button">
-                                            <i class="fas fa-xmark me-1"></i>
-                                            Update Project
-                                        </a>
-                                        <button class="btn btn-dark btn-xl text-uppercase" data-bs-dismiss="" type="button">
-                                            <i class="fas fa-xmark me-1"></i>
-                                            Delete Project
-                                        </button>
+                            <form method="POST" action="/photos/<%= photoID._id %>?_method=PUT" encType="multipart/form-data">
+                                <div class="row align-items-stretch mb-5">
+                                    <div class="col-md-6">
+                                        <div class="form-group p-2">
+                                            <!-- Title input-->
+                                            <input class="form-control p-2 m-1" name="title" type="text" placeholder="Edit Photo Title" value="<%= photoID.title %>" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-textarea m-1">
+                                            <!-- Description input-->
+                                            <textarea class="form-control" rows="8" name="description" placeholder="Edit your description" required><%= photoID.description %></textarea>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <!-- Submit Button-->
+                                <div class="text-center p-3">
+                                    <button class="btn btn-primary btn-xl" type="submit">
+                                        Update Photo
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                         <!-- for line -->
                         <div class="bg-dark text-start">

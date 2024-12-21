@@ -29,9 +29,7 @@
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#photos">Photos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Add Photo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/edit">Edit</a></li>
                     </ul>
                 </div>
             </div>
@@ -56,14 +54,11 @@
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
                             <a class="portfolio-link" href="/photos/<%= photos[i]._id %>">
-                                <!-- <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div> -->
-                                <img class="img-fluid" src="<%= photos[i].image %>" alt="..." />
+                                <img class="" src="<%= photos[i].image %>" alt="..." height="336" width="336"  />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"> <%= photos[i].title %> </div>
-                                <div class="portfolio-caption-subheading text-muted"> <%= photos[i].description %> </div>
+                                <div style="text-overflow: ellipsis; overflow: hidden;" class="portfolio-caption-subheading text-muted"> <%= photos[i].description %> </div>
                             </div>
                         </div>
                         <!-- Portfolio item 1-->
