@@ -29,7 +29,6 @@
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#photos">Photos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Add Photo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/edit">Edit</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,8 +56,10 @@
                                 <img class="" src="<%= photos[i].image %>" alt="..." height="336" width="336"  />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading"> <%= photos[i].title %> </div>
-                                <div style="text-overflow: ellipsis; overflow: hidden;" class="portfolio-caption-subheading text-muted"> <%= photos[i].description %> </div>
+                                <div class="portfolio-caption-heading"> <%= photos[i].title.substring(0,40) %> </div>
+                                <div style="text-overflow: ellipsis; overflow: hidden;" class="portfolio-caption-subheading text-muted"> 
+                                    <%= photos[i].description.substring(0,80) %>... 
+                                </div>
                             </div>
                         </div>
                         <!-- Portfolio item 1-->

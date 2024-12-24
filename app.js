@@ -14,7 +14,8 @@ const port = 3000;
 // connect DB
 mongoose.connect('mongodb://localhost/agency-test-db',{
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 });
 
 // TEMPLATE ENGİNE
@@ -25,7 +26,9 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(fileUpload());
-app.use(methodOverride('_method'));
+app.use(methodOverride('_method', {
+    methods: ['POST', 'GET']
+}));
 
 // ROUTES
 app.get('/', async ( req, res ) => {
@@ -54,7 +57,6 @@ app.post('/photos', async ( req, res ) => {
     // console.log(req.body);
     //await Photo.create(req.body);
     //res.redirect('/');
-    
     const uploadDir = 'public/uploads';
     if (!fs.existsSync(uploadDir)) {
         fs.mkdirSync(uploadDir);
@@ -76,6 +78,15 @@ app.put('/photos/:id', async (req, res) => {
     photoUpdate.description = req.body.description;
     photoUpdate.save();
     res.redirect(`/photos/${req.params.id}`);
+});
+// DELETE
+app.delete('/photos/:id',async ( req, res ) => {
+    // console.log(req.params.id);
+    const photo = await Photo.findOne({ _id: req.params.id });
+    let deletedImage = __dirname + '/public' + photo.image;
+    fs.unlinkSync(deletedImage);
+    await Photo.findByIdAndRemove( req.params.id );
+    res.redirect('/');
 });
 
 app.listen(port, () => {
