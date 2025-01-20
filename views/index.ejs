@@ -65,6 +65,19 @@
                         <!-- Portfolio item 1-->
                     </div>
                     <% } %>
+                    <!-- Pagination -->
+                    <div>
+                        <% if (pages > 0) { %>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <% for( i=1; i <= pages; i++ ) { %>
+                                    <li class="page-item"><a class="page-link" href="/?page=<%= i %>"> <%= i %> </a></li>
+                                    <% } %>
+                                </ul>
+                            </nav>
+                        <% } %>
+                    </div>
+                    <!-- Pagination -->
                     <div class="text-center mt-5" id="portfolio">
                         <h2 class="section-heading text-uppercase">Add Photo</h2>
                         <h3 class="section-subheading text-muted">You can add photo here</h3>
