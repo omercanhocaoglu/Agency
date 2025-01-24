@@ -8,14 +8,19 @@ const methodOverride = require('method-override');
 //controllers
 const PhotoControllers = require('./controllers/PhotoControllers');
 
+// port and express
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 // connect DB
-mongoose.connect('mongodb://localhost/agency-test-db',{
+mongoose.connect('mongodb+srv://omercanhocaoglu:pw2w0HooJhQk3ZkY@cluster0.zm3je.mongodb.net/',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
+}).then( () => {
+    console.log('DB connected!')
+} ).catch((err) => {
+    console.log(err)
 });
 
 // TEMPLATE ENGİNE
